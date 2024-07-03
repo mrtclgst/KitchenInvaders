@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c5f0dad35c4b442938f3c0bddf75cb, type: 3}
+  m_Name: _KitchenObjectListSO
+  m_EditorClassIdentifier: 
+  KitchenObjectSOList:
+  - {fileID: 11400000, guid: c27be9081ecc04c4dbc1ffcc68db2b06, type: 2}
+  - {fileID: 11400000, guid: 069ce05b2838f134b95d6765d82c74ec, type: 2}
+  - {fileID: 11400000, guid: cc69d0650098cb14493d657a83bf905b, type: 2}
+  - {fileID: 11400000, guid: 20e5ba8d5f3c16f4c850070056e54bc6, type: 2}
+  - {fileID: 11400000, guid: 9c01be06c3adb1a48be49a1a074167e4, type: 2}
+  - {fileID: 11400000, guid: ebc3168992e9168458971d73ab3e3b59, type: 2}
+  - {fileID: 11400000, guid: fd8277ce6fbbbf346b53aa811023efe1, type: 2}
+  - {fileID: 11400000, guid: 892207df47fdf494199f2f6b7a3b7149, type: 2}
+  - {fileID: 11400000, guid: c547a994aea81d8409cfba27149d2c2b, type: 2}
+  - {fileID: 11400000, guid: 38ae4f1343ac60c47bbe8adc95d60f24, type: 2}
+  - {fileID: 11400000, guid: b1dbe447dbb13554892a63d3907b300c, type: 2}
+  - {fileID: 11400000, guid: aaa1324ef26bb7d458a125a7afb7ea64, type: 2}
+  - {fileID: 11400000, guid: 937c10ed843453e41a98483b66cef92e, type: 2}
+  - {fileID: 11400000, guid: cf9797d8d2e2d3543aa08b57b176a2fa, type: 2}
+  - {fileID: 11400000, guid: ce2b9894f496e7147a14ed84a1b973d4, type: 2}
+  - {fileID: 11400000, guid: a92e3ac7232389441a003cd185a6409d, type: 2}
+  - {fileID: 11400000, guid: d056712fd1b3a5943be951013c91a50b, type: 2}
+  - {fileID: 11400000, guid: 20bb48ae292f1f84a8e1411f34498bb1, type: 2}
+  - {fileID: 11400000, guid: 230aab684ae2c104b8dc639d36251cdd, type: 2}
+  - {fileID: 11400000, guid: 748191875fab38d4a85e14454c0b1881, type: 2}
+  - {fileID: 11400000, guid: e7e9d34dcb129124690e0d0fe95f0128, type: 2}
+  - {fileID: 11400000, guid: a6581bf861b70cd478ca3122e7b9119f, type: 2}
