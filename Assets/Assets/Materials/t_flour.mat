@@ -231,8 +231,8 @@ Material:
     - _OutlineFadeMax: 2
     - _OutlineFadeMin: 0.25
     - _OutlineNoise: 0
-    - _OutlineSize: 5
-    - _OutlineTab: 0
+    - _OutlineSize: 60
+    - _OutlineTab: 1
     - _Parallax: 0
     - _ReceiveShadows: 1
     - _RenderFace: 2

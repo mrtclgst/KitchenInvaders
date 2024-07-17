@@ -328,10 +328,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _counterTopPoint: {fileID: 3098748722068650776}
-  _mixingRecipeSOArray:
-  - {fileID: 11400000, guid: ad79edb75060f6f4195106d3fde2485d, type: 2}
-  - {fileID: 11400000, guid: 3717c811956f9804aac87a02cb774531, type: 2}
-  - {fileID: 11400000, guid: 9f586292ba9902d4bbad702c5103d050, type: 2}
+  _mixerRecipeList:
+  - mixerRecipeIngredients:
+    - {fileID: 11400000, guid: bebd897cc7be9284fa249e9a74567cdf, type: 2}
+    - {fileID: 11400000, guid: 20bb48ae292f1f84a8e1411f34498bb1, type: 2}
+    - {fileID: 11400000, guid: 2426c47b911e5fd439af73e789dc1a6f, type: 2}
+    mixerTimerMax: 3
+  - mixerRecipeIngredients:
+    - {fileID: 11400000, guid: bebd897cc7be9284fa249e9a74567cdf, type: 2}
+    - {fileID: 11400000, guid: cc69d0650098cb14493d657a83bf905b, type: 2}
+    - {fileID: 11400000, guid: aaa1324ef26bb7d458a125a7afb7ea64, type: 2}
+    mixerTimerMax: 3
+  - mixerRecipeIngredients:
+    - {fileID: 11400000, guid: 748191875fab38d4a85e14454c0b1881, type: 2}
+    - {fileID: 11400000, guid: bebd897cc7be9284fa249e9a74567cdf, type: 2}
+    - {fileID: 11400000, guid: fd8277ce6fbbbf346b53aa811023efe1, type: 2}
+    mixerTimerMax: 3
+  _kitchenObjectSOList: []
+  _mixedKitchenObjectSO: {fileID: 11400000, guid: b7fec648be73a2b4a9740cb89b99b6fe,
+    type: 2}
 --- !u!1001 &5821770738749163378
 PrefabInstance:
   m_ObjectHideFlags: 0

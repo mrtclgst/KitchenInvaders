@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.06285436, g: 0.3597117, b: 1.1454141, a: 1}
+  m_IndirectSpecularColor: {r: 0.11816915, g: 0.5169387, b: 1.1189536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -303,6 +303,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2737637054745399246, guid: fd6c11fb7b1115443b0bdaa8b23488ab,
+        type: 3}
+      propertyPath: _playerVisualContainerSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 535a6e86bfa4e0540a5123783176c024,
+        type: 2}
     - target: {fileID: 5815888878672822982, guid: fd6c11fb7b1115443b0bdaa8b23488ab,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -723,6 +729,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2737637054745399246, guid: fd6c11fb7b1115443b0bdaa8b23488ab,
+        type: 3}
+      propertyPath: _playerVisualContainerSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 535a6e86bfa4e0540a5123783176c024,
+        type: 2}
     - target: {fileID: 5057712774039512700, guid: fd6c11fb7b1115443b0bdaa8b23488ab,
         type: 3}
       propertyPath: _playerIndex
@@ -1822,6 +1834,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2737637054745399246, guid: fd6c11fb7b1115443b0bdaa8b23488ab,
+        type: 3}
+      propertyPath: _playerVisualContainerSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 535a6e86bfa4e0540a5123783176c024,
+        type: 2}
     - target: {fileID: 5057712774039512700, guid: fd6c11fb7b1115443b0bdaa8b23488ab,
         type: 3}
       propertyPath: _playerIndex
@@ -2847,6 +2865,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2737637054745399246, guid: fd6c11fb7b1115443b0bdaa8b23488ab,
+        type: 3}
+      propertyPath: _playerVisualContainerSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 535a6e86bfa4e0540a5123783176c024,
+        type: 2}
     - target: {fileID: 5057712774039512700, guid: fd6c11fb7b1115443b0bdaa8b23488ab,
         type: 3}
       propertyPath: _playerIndex

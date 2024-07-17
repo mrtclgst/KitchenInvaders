@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: PepperoniPizza
   m_EditorClassIdentifier: 
   _kitchenObjectSOList:
-  - {fileID: 11400000, guid: 50035b9cf3d02b240b5a1187a507ccfb, type: 2}
+  - {fileID: 11400000, guid: bebd897cc7be9284fa249e9a74567cdf, type: 2}
+  - {fileID: 11400000, guid: 20bb48ae292f1f84a8e1411f34498bb1, type: 2}
+  - {fileID: 11400000, guid: 2426c47b911e5fd439af73e789dc1a6f, type: 2}
+  - {fileID: 11400000, guid: b7fec648be73a2b4a9740cb89b99b6fe, type: 2}
+  - {fileID: 11400000, guid: 73cab066a57d0994a92ee2c468d789cb, type: 2}
   _recipeName: Pepperoni Pizza

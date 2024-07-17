@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: CarrotCake
   m_EditorClassIdentifier: 
   _kitchenObjectSOList:
-  - {fileID: 11400000, guid: ad6580533e42da14dbcd6db9eeb258b9, type: 2}
+  - {fileID: 11400000, guid: bebd897cc7be9284fa249e9a74567cdf, type: 2}
+  - {fileID: 11400000, guid: cc69d0650098cb14493d657a83bf905b, type: 2}
+  - {fileID: 11400000, guid: aaa1324ef26bb7d458a125a7afb7ea64, type: 2}
+  - {fileID: 11400000, guid: b7fec648be73a2b4a9740cb89b99b6fe, type: 2}
+  - {fileID: 11400000, guid: 73cab066a57d0994a92ee2c468d789cb, type: 2}
   _recipeName: Carrot Cake

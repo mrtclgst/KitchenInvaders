@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Moss
   m_EditorClassIdentifier: 
   _prefab: {fileID: 1551219338812869207, guid: 89082d6a3e62bca45b992a1c05c718cf, type: 3}
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: a4a30a507a1311a438ecf1507369b28d, type: 3}
   _name: Moss

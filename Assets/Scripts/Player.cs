@@ -83,7 +83,6 @@ public class Player : NetworkBehaviour, IKitchenObjectParent
             if (hit.transform.TryGetComponent(out BaseCounter counter))
             {
                 //clearCounter.Interact();
-                Debug.Log("Counter: " + counter.name);
                 if (_selectedCounter != counter)
                 {
                     SetSelectedCounter(counter);
@@ -246,7 +245,6 @@ public class Player : NetworkBehaviour, IKitchenObjectParent
     }
     private void SetSelectedCounter(BaseCounter selectedCounter)
     {
-        Debug.Log("Selected Counter: " + selectedCounter);
         _selectedCounter = selectedCounter;
         Event_OnSelectedCounterChanged?.Invoke(this,
             new Event_OnSelectedCounterChangedEventArgs { SelectedCounter = selectedCounter });

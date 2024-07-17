@@ -100,7 +100,7 @@ PrefabInstance:
     - target: {fileID: 5784872490036555928, guid: 5a12a3322d498ea458181f6ac2362ab1,
         type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 635935377
+      value: 1967849209
       objectReference: {fileID: 0}
     - target: {fileID: 7111509429685274462, guid: 5a12a3322d498ea458181f6ac2362ab1,
         type: 3}
@@ -219,7 +219,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _counterTopPoint: {fileID: 766419559154030759}
-  _bakingRecipeSOArray: []
+  _ovenRecipeList:
+  - ovenRecipeIngredients:
+    - {fileID: 11400000, guid: bebd897cc7be9284fa249e9a74567cdf, type: 2}
+    - {fileID: 11400000, guid: 20bb48ae292f1f84a8e1411f34498bb1, type: 2}
+    - {fileID: 11400000, guid: 2426c47b911e5fd439af73e789dc1a6f, type: 2}
+    - {fileID: 11400000, guid: b7fec648be73a2b4a9740cb89b99b6fe, type: 2}
+    ovenTimerMax: 5
+  - ovenRecipeIngredients:
+    - {fileID: 11400000, guid: bebd897cc7be9284fa249e9a74567cdf, type: 2}
+    - {fileID: 11400000, guid: cc69d0650098cb14493d657a83bf905b, type: 2}
+    - {fileID: 11400000, guid: aaa1324ef26bb7d458a125a7afb7ea64, type: 2}
+    - {fileID: 11400000, guid: b7fec648be73a2b4a9740cb89b99b6fe, type: 2}
+    ovenTimerMax: 5
+  - ovenRecipeIngredients:
+    - {fileID: 11400000, guid: bebd897cc7be9284fa249e9a74567cdf, type: 2}
+    - {fileID: 11400000, guid: 748191875fab38d4a85e14454c0b1881, type: 2}
+    - {fileID: 11400000, guid: fd8277ce6fbbbf346b53aa811023efe1, type: 2}
+    - {fileID: 11400000, guid: b7fec648be73a2b4a9740cb89b99b6fe, type: 2}
+    ovenTimerMax: 5
+  _kitchenObjectSOList: []
+  _bakedKitchenObjectSO: {fileID: 11400000, guid: 73cab066a57d0994a92ee2c468d789cb,
+    type: 2}
 --- !u!4 &9037524930442649190 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7158911508998988478, guid: 5a12a3322d498ea458181f6ac2362ab1,

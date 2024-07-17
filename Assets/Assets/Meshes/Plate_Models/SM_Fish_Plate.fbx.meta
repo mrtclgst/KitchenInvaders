@@ -3,7 +3,17 @@ guid: a7e0813f079ccc0488eae4e8a8365a7b
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Fish_1
+    second: {fileID: 2100000, guid: 5e3462a3c2896cd4bb291899e1135358, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Fish_Sashimi
+    second: {fileID: 2100000, guid: dd6169c92f8c21640a532b75d2085506, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -90,7 +100,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.009
+    globalScale: 0.9
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

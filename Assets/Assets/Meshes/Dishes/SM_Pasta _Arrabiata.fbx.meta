@@ -13,7 +13,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_Pasta_Sos
-    second: {fileID: 2100000, guid: 613fd0359304c4a42be21ccb769ae414, type: 2}
+    second: {fileID: 2100000, guid: 87889e0a206c041488fe493b9eaa0726, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -105,7 +105,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.0074
+    globalScale: 0.74
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

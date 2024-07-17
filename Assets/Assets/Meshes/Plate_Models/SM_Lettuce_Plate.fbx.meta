@@ -3,7 +3,12 @@ guid: c51989fbecceeba4fb2332f8098cd328
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Lettuce_Green
+    second: {fileID: 2100000, guid: fb85f3b144208ed4ca4a1358743f7cc0, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -90,7 +95,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.0075
+    globalScale: 0.75
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

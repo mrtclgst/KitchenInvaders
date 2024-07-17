@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlateKitchenObject : KitchenObject
 {
     public event EventHandler<EventArgs_OnIngredientAdded> Event_OnIngredientAdded;
+    public event EventHandler Event_OnIngredientRemoved;
     public class EventArgs_OnIngredientAdded : EventArgs
     {
         public KitchenObjectSO ingredientSO;
@@ -27,8 +28,6 @@ public class PlateKitchenObject : KitchenObject
         {
             return false;
         }
-
-
         if (_kitchenObjectSOList.Contains(kitchenObjectSO))
         {
             return false;
@@ -38,6 +37,11 @@ public class PlateKitchenObject : KitchenObject
             AddIngredientServerRpc(KitchenGameMultiplayer.Instance.GetKitchenObjectSOIndex(kitchenObjectSO));
             return true;
         }
+    }
+
+    public void RemoveIngredientsFromPlate()
+    {
+        RemoveIngredientServerRPC();
     }
 
     [ServerRpc(RequireOwnership = false)]
@@ -52,6 +56,13 @@ public class PlateKitchenObject : KitchenObject
         KitchenObjectSO kitchenObjectSO = KitchenGameMultiplayer.Instance.GetKitchenObjectSOFromIndex(kitchenObjectSOIndex);
         _kitchenObjectSOList.Add(kitchenObjectSO);
         Event_OnIngredientAdded?.Invoke(this, new EventArgs_OnIngredientAdded { ingredientSO = kitchenObjectSO });
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    private void RemoveIngredientServerRPC()
+    {
+        _kitchenObjectSOList.Clear();
+        Event_OnIngredientRemoved?.Invoke(this, EventArgs.Empty);
     }
 
     public List<KitchenObjectSO> GetKitchenObjectSOList()

@@ -114,7 +114,6 @@ public class GameManager : NetworkBehaviour
                 GameOver();
                 break;
         }
-        Debug.Log(_gameState.Value);
     }
     private void LateUpdate()
     {

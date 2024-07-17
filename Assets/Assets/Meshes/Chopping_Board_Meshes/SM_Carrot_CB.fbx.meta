@@ -3,7 +3,12 @@ guid: 8fad92da0e4fcd4408b4efeb53805d0a
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Carrot_Inside
+    second: {fileID: 2100000, guid: 828edf1f9e1827442aaaa6c72d0ba85a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

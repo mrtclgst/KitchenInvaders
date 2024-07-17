@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: Pancake
   m_EditorClassIdentifier: 
   _kitchenObjectSOList:
-  - {fileID: 11400000, guid: b2be2aede45bdbc4090abaf1644d4ba0, type: 2}
+  - {fileID: 11400000, guid: bebd897cc7be9284fa249e9a74567cdf, type: 2}
+  - {fileID: 11400000, guid: 748191875fab38d4a85e14454c0b1881, type: 2}
+  - {fileID: 11400000, guid: fd8277ce6fbbbf346b53aa811023efe1, type: 2}
+  - {fileID: 11400000, guid: b7fec648be73a2b4a9740cb89b99b6fe, type: 2}
+  - {fileID: 11400000, guid: 73cab066a57d0994a92ee2c468d789cb, type: 2}
   _recipeName: Pancake

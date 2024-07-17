@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -6,7 +7,12 @@ public class MixerCounter : BaseCounter, IHasProgress
 {
     public event EventHandler<IHasProgress.Event_OnProgressChangedArgs> Event_OnProgressChanged;
     public event EventHandler<Event_OnStateChangedArgs> Event_OnStateChanged;
-
+    [Serializable]
+    public struct MixerRecipe
+    {
+        public List<KitchenObjectSO> mixerRecipeIngredients;
+        public float mixerTimerMax;
+    }
     public class Event_OnStateChangedArgs : EventArgs
     {
         public State state;
@@ -17,35 +23,39 @@ public class MixerCounter : BaseCounter, IHasProgress
         Mixing,
     }
 
-    [SerializeField] private MixingRecipeSO[] _mixingRecipeSOArray;
+    //[SerializeField] private MixingRecipeSO[] _mixingRecipeSOArray;
+    [SerializeField] private List<MixerRecipe> _mixerRecipeList;
+    [SerializeField] private List<KitchenObjectSO> _kitchenObjectSOList;
+    [SerializeField] private KitchenObjectSO _mixedKitchenObjectSO;
 
     private NetworkVariable<float> _mixerTimer = new NetworkVariable<float>();
     private NetworkVariable<State> _state = new NetworkVariable<State>(State.Idle);
-    private MixingRecipeSO _mixingRecipeSO;
+    private NetworkVariable<float> _mixerTimerMax = new NetworkVariable<float>();
 
     private void Update()
     {
         if (!IsServer) { return; }
-        if (HasKitchenObject())
+        //if (HasKitchenObject())
+        //{
+        switch (_state.Value)
         {
-            switch (_state.Value)
-            {
-                case State.Idle:
-                    break;
-                case State.Mixing:
-                    _mixerTimer.Value += Time.deltaTime;
-                    if (_mixerTimer.Value > _mixingRecipeSO.GetFryingTimeMax())
-                    {
-                        KitchenObject.DestroyKitchenObject(GetKitchenObject());
-                        KitchenObject.CreateKitchenObject(_mixingRecipeSO.GetOutput(), this);
-                        _state.Value = State.Idle;
-                        _mixerTimer.Value = 0;
-                    }
-                    break;
-                default:
-                    break;
-            }
+            case State.Idle:
+                break;
+            case State.Mixing:
+                _mixerTimer.Value += Time.deltaTime;
+                if (_mixerTimer.Value > _mixerTimerMax.Value)
+                {
+                    //KitchenObject.DestroyKitchenObject(GetKitchenObject());
+                    //KitchenObject.CreateKitchenObject(_mixedKitchenObject, this);
+                    SetMixingRecipeSOClientRpc(KitchenGameMultiplayer.Instance.GetKitchenObjectSOIndex(_mixedKitchenObjectSO));
+                    _state.Value = State.Idle;
+                    _mixerTimer.Value = 0;
+                }
+                break;
+            default:
+                break;
         }
+        //}
     }
     public override void OnNetworkSpawn()
     {
@@ -54,7 +64,7 @@ public class MixerCounter : BaseCounter, IHasProgress
     }
     private void MixingTimer_OnValueChanged(float previousValue, float newValue)
     {
-        float mixingTimerMax = _mixingRecipeSO != null ? _mixingRecipeSO.GetFryingTimeMax() : 1f;
+        float mixingTimerMax = _mixerTimerMax.Value != 0 ? _mixerTimerMax.Value : 1f;
         Event_OnProgressChanged?.Invoke(this, new IHasProgress.Event_OnProgressChangedArgs
         { ProgressNormalized = _mixerTimer.Value / mixingTimerMax });
     }
@@ -69,20 +79,25 @@ public class MixerCounter : BaseCounter, IHasProgress
     }
     public override void Interact(Player player)
     {
-        if (HasKitchenObject())
+        if (_kitchenObjectSOList.Count > 0)
         {
             if (player.HasKitchenObject())
             {
                 if (player.GetKitchenObject().TryToGetPlate(out PlateKitchenObject plateKitchenObject))
                 {
-                    plateKitchenObject.TryToAddIngredient(GetKitchenObject().GetKitchenObjectSO());
-                    KitchenObject.DestroyKitchenObject(GetKitchenObject());
+                    foreach (KitchenObjectSO kitchenObjectSO in _kitchenObjectSOList)
+                    {
+                        plateKitchenObject.TryToAddIngredient(kitchenObjectSO);
+                    }
+
+                    //plateKitchenObject.TryToAddIngredient(GetKitchenObject().GetKitchenObjectSO());
+                    //KitchenObject.DestroyKitchenObject(GetKitchenObject());
                     SetStateIdleServerRpc();
                 }
             }
             else
             {
-                GetKitchenObject().SetKitchenObjectParent(player);
+                //GetKitchenObject().SetKitchenObjectParent(player);
                 SetStateIdleServerRpc();
             }
         }
@@ -90,13 +105,28 @@ public class MixerCounter : BaseCounter, IHasProgress
         {
             if (player.HasKitchenObject())
             {
-                if (HasOutputForInput(player.GetKitchenObject().GetKitchenObjectSO()))
+                if (player.GetKitchenObject().TryToGetPlate(out PlateKitchenObject plateKitchenObject))
                 {
+                    List<KitchenObjectSO> ingredientsInPlate = plateKitchenObject.GetKitchenObjectSOList();
+                    if (HasOutputForInput(ingredientsInPlate))
+                    {
+                        foreach (KitchenObjectSO kitchenObjectSO in ingredientsInPlate)
+                        {
+                            InteractLogicPlaceObjectOnCounterServerRpc(
+                                KitchenGameMultiplayer.Instance.GetKitchenObjectSOIndex(kitchenObjectSO));
+                        }
+                        plateKitchenObject.RemoveIngredientsFromPlate();
+                    };
+                }
+
+                /*if (HasOutputForInput(player.GetKitchenObject().GetKitchenObjectSO()))
+                {
+                    player'in tabagi alinacak ve tabaktaki malzemeleri kontrol edecegiz.
                     KitchenObject kitchenObject = player.GetKitchenObject();
                     kitchenObject.SetKitchenObjectParent(this);
                     InteractLogicPlaceObjectOnCounterServerRpc(
                         KitchenGameMultiplayer.Instance.GetKitchenObjectSOIndex(kitchenObject.GetKitchenObjectSO()));
-                }
+                }*/
             }
             else
             {
@@ -104,29 +134,40 @@ public class MixerCounter : BaseCounter, IHasProgress
             }
         }
     }
-    private bool HasOutputForInput(KitchenObjectSO inputKitchenObjectSO)
+    private bool HasOutputForInput(List<KitchenObjectSO> ingredientsInPlate)
     {
-        MixingRecipeSO mixingRecipeSO = GetMixingRecipeSO(inputKitchenObjectSO);
-        return mixingRecipeSO != null;
-    }
-    private MixingRecipeSO GetMixingRecipeSO(KitchenObjectSO inputKitchenObjectSO)
-    {
-        foreach (MixingRecipeSO mixingRecipeSO in _mixingRecipeSOArray)
+        foreach (MixerRecipe mixerRecipe in _mixerRecipeList)
         {
-            if (mixingRecipeSO.GetInput() == inputKitchenObjectSO)
+            if (IsRecipeMatch(ingredientsInPlate, mixerRecipe))
             {
-                return mixingRecipeSO;
+                return true;
             }
         }
 
-        return null;
+        return false;
     }
+    private bool IsRecipeMatch(List<KitchenObjectSO> ingredientsInPlate, MixerRecipe mixerRecipe)
+    {
+        if (ingredientsInPlate.Count != mixerRecipe.mixerRecipeIngredients.Count)
+            return false;
 
+        foreach (KitchenObjectSO ingredient in ingredientsInPlate)
+        {
+            if (!mixerRecipe.mixerRecipeIngredients.Contains(ingredient))
+            {
+                return false;
+            }
+        }
+
+        _mixerTimerMax.Value = mixerRecipe.mixerTimerMax;
+        return true;
+    }
 
     [ServerRpc(RequireOwnership = false)]
     private void SetStateIdleServerRpc()
     {
         _state.Value = State.Idle;
+        _kitchenObjectSOList.Clear();
     }
     [ServerRpc(RequireOwnership = false)]
     private void InteractLogicPlaceObjectOnCounterServerRpc(int kitchenObjectSOIndex)
@@ -139,6 +180,13 @@ public class MixerCounter : BaseCounter, IHasProgress
     private void SetMixingRecipeSOClientRpc(int kitchenObjectSOIndex)
     {
         KitchenObjectSO kitchenObjectSO = KitchenGameMultiplayer.Instance.GetKitchenObjectSOFromIndex(kitchenObjectSOIndex);
-        _mixingRecipeSO = GetMixingRecipeSO(kitchenObjectSO);
+        _kitchenObjectSOList.Add(kitchenObjectSO);
+    }
+    
+    [ServerRpc(RequireOwnership = false)]
+    private void AddIngredientServerRpc(int kitchenObjectSOIndex)
+    {
+        KitchenObjectSO kitchenObjectSO = KitchenGameMultiplayer.Instance.GetKitchenObjectSOFromIndex(kitchenObjectSOIndex);
+        _kitchenObjectSOList.Add(kitchenObjectSO);
     }
 }

@@ -3,7 +3,12 @@ guid: 90d6efa32cab90840bdaa3a974a6e52e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Tomato
+    second: {fileID: 2100000, guid: c41688c471c44054fa3579489faac7f2, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -90,7 +95,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.0092
+    globalScale: 0.92
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

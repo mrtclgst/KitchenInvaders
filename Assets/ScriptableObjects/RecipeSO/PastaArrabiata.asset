@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: PastaArrabiata
   m_EditorClassIdentifier: 
   _kitchenObjectSOList:
-  - {fileID: 11400000, guid: a6581bf861b70cd478ca3122e7b9119f, type: 2}
   - {fileID: 11400000, guid: 7a9200a0d8a84f6408546e92be9f9902, type: 2}
   - {fileID: 11400000, guid: 7b5aeb2184b2e3446b8c44913820cd26, type: 2}
   _recipeName: Pasta Arrabiata
